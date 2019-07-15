@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="">
+    
+   <div class="forminput">
+       <form name="frm">
+      <div class="question">
+          <label for="name">enter the name:</label>
+        <input type="text" name="name" id="name" ng-model="name" required>
+        <span ng-show="frm.name.$error.required">*</span>
+    </div>
+<div class="question">
+    <label for="mail">enter the mail id:</label>
+    <input type="email" name="mail" id="mail" ng-model="mail" required>
+    <span ng-show="frm.mail.$error.required">*</span>
+    <span ng-show="frm.mail.$error.email">not a mail</span>
+</div>
+<div class="question">
+    <label for="phone">enter the phone number:</label>
+    <input type="number" name="phone" id="phone" ng-model="phone" required>
+  
+</div>
+<div class="question">
+    <label for="pass">enter password:</label>
+    <input type="password" name="pass" id="pass" ng-model="pass" ng-minlength="6" ng-maxlength="10" required>
+
+</div>
+<div class="question">
+    <label for="cpass">confirm password:</label>
+    <input type="password" name="cpass" id="cpass" ng-model="cpass"  ng-model="pass" ng-minlegth="6" ng-maxlegth="10" required>
+ 
+    
+</div>
+</form>
+<button>submit</button>
+</div>
+<script>
+function submit(){
+    var pass=document.getElementById("pass").value;
+    var cpass=document.getElementById("cpass").value;
+    if(pass!=cpass){
+        swal("oops", "You entered wrong password!", "warning");
+    }
+}</script>
+
+</body>
+</html>
